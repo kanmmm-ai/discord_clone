@@ -1,0 +1,23 @@
+import { Logout } from "@mui/icons-material";
+import { createSlice } from "@reduxjs/toolkit";
+import { InitialUserState } from "../type";
+
+const initialState: InitialUserState = {
+    user: null,
+
+}
+
+export const useSlice = createSlice({
+    name: "user",
+    initialState,
+    reducers: {
+        login: (state, action) => {
+            state.user = action.payload;
+        },
+        logout: (state) => {
+            state.user = null;
+        }
+    }
+})
+
+export default useSlice.reducer;
